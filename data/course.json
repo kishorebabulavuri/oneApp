@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sql-basics",
+    "title": "SQL Basics",
+    "slug": "sql-basics",
+    "level": "Beginner",
+    "duration": "2h 30m",
+    "lessons": 12,
+    "progress": 0
+  },
+  {
+    "id": "joins",
+    "title": "Mastering Joins",
+    "slug": "joins",
+    "level": "Intermediate",
+    "duration": "1h 45m",
+    "lessons": 8,
+    "progress": 40
+  }
+]

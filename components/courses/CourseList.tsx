@@ -49,16 +49,19 @@ const CourseCard = ({
   );
 };
 
+export default CourseCard;
+
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
-    marginBottom: 16,
+    borderRadius: 16,
     padding: 16,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
+    marginBottom: 16,
     elevation: 3,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
   },
   header: {
     flexDirection: 'row',
@@ -71,18 +74,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     flex: 1,
     flexWrap: 'wrap',
-    color: '#222',
   },
   levelTag: {
-    backgroundColor: '#E0E0E0',
+    backgroundColor: '#DCFCE7',
+    borderRadius: 8,
+    paddingHorizontal: 8,
     paddingVertical: 4,
-    paddingHorizontal: 10,
-    borderRadius: 20,
-    marginLeft: 8,
   },
   levelText: {
     fontSize: 12,
-    color: '#333',
+    color: '#15803D',
+    fontWeight: '600',
   },
   metaRow: {
     flexDirection: 'row',
@@ -90,19 +92,20 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   metaText: {
-    marginLeft: 4,
     fontSize: 14,
     color: '#555',
+    marginLeft: 4,
   },
   progressRow: {
-    marginBottom: 10,
+    marginBottom: 12,
   },
   progressText: {
     fontSize: 14,
-    color: '#777',
+    fontWeight: '500',
+    color: '#333',
   },
   button: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#16A34A',
     paddingVertical: 10,
     borderRadius: 8,
     alignItems: 'center',
@@ -110,8 +113,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontWeight: '600',
-    fontSize: 16,
   },
 });
-
-export default CourseCard;

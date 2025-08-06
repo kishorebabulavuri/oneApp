@@ -2,13 +2,13 @@ import { Feather } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from 'react';
 import {
-    Platform,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    useColorScheme,
-    View
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  useColorScheme,
+  View
 } from 'react-native';
 import { Menu, MenuOption, MenuOptions, MenuTrigger } from 'react-native-popup-menu';
 
@@ -18,7 +18,7 @@ const WelcomeHeader = () => {
   const systemScheme = useColorScheme(); // system light/dark
   const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('system');
   const [userName, setUserName] = useState('');
-  const [notificationCount, setNotificationCount] = useState(3);
+  const [notificationCount, setNotificationCount] = useState(1);
 
   useEffect(() => {
     const loadUser = async () => {

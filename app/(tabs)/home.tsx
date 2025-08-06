@@ -1,4 +1,6 @@
 // app/(tabs)/home.tsx
+import Achievements from '@/components/home/Achievements';
+import CourseProgress from '@/components/home/CourseProgress';
 import QuickStart from '@/components/home/QuickStart';
 import StreakPointsCard from '@/components/home/StreakPoints';
 import WelcomeSearch from '@/components/home/WelcomeSearch';
@@ -12,8 +14,9 @@ export default function HomeScreen() {
       <WelcomeSearch />
       <StreakPointsCard />
       <QuickStart />
-      
-      
+      <CourseProgress />
+      <Achievements />
+
       {/* Add rest of your components here like SearchBar, StreakCards, etc. */}
     </ScrollView>
   );

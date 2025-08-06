@@ -1,4 +1,11 @@
 import { useNavigation } from 'expo-router';
+import {
+    Book,
+    Brain,
+    CreditCard,
+    MessageSquare,
+    Target,
+} from 'lucide-react-native'; // ✅ Lucide Icons
 import React from 'react';
 import {
     StyleSheet,
@@ -14,10 +21,10 @@ const QuickStart = () => {
   const isDark = scheme === 'dark';
 
   const quickActions = [
-    { title: 'Continue Course', icon: '📖', path: '/(tabs)/course' },
-    { title: 'Take Quiz', icon: '🧠', path: '/(tabs)/quiz' },
-    { title: 'Flashcards', icon: '💳', path: '/(tabs)/flashcards' },
-    { title: 'Interview Prep', icon: '💬', path: '/(tabs)/interview' },
+    { title: 'Continue Course', icon: <Book size={22} />, screen: 'course' },
+    { title: 'Take Quiz', icon: <Brain size={22} />, screen: 'quiz' },
+    { title: 'Flashcards', icon: <CreditCard size={22} />, screen: 'cards' },
+    { title: 'Interview Prep', icon: <MessageSquare size={22} />, screen: 'qa' },
   ];
 
   return (
@@ -27,14 +34,17 @@ const QuickStart = () => {
         { backgroundColor: isDark ? '#1c1c1e' : '#f0f4ff' },
       ]}
     >
-      <Text
-        style={[
-          styles.title,
-          { color: isDark ? '#fff' : '#000' },
-        ]}
-      >
-        🎯 Quick Start
-      </Text>
+      <View style={styles.titleRow}>
+        <Target size={20} color={isDark ? '#fff' : '#000'} />
+        <Text
+          style={[
+            styles.title,
+            { color: isDark ? '#fff' : '#000' },
+          ]}
+        >
+          Quick Start
+        </Text>
+      </View>
 
       <View style={styles.grid}>
         {quickActions.map((item) => (
@@ -42,13 +52,11 @@ const QuickStart = () => {
             key={item.title}
             style={[
               styles.actionBox,
-              {
-                backgroundColor: isDark ? '#2c2c2e' : '#fff',
-              },
+              { backgroundColor: isDark ? '#2c2c2e' : '#fff' },
             ]}
-            onPress={() => navigation.navigate(item.path as never)}
+            onPress={() => navigation.navigate(item.screen as never)}
           >
-            <Text style={styles.icon}>{item.icon}</Text>
+            <View style={styles.icon}>{item.icon}</View>
             <Text
               style={[
                 styles.label,
@@ -75,10 +83,15 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 2,
   },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 12,
+  },
   title: {
     fontSize: 18,
     fontWeight: '700',
-    marginBottom: 12,
   },
   grid: {
     flexDirection: 'row',
@@ -95,7 +108,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   icon: {
-    fontSize: 22,
     marginBottom: 6,
   },
   label: {
