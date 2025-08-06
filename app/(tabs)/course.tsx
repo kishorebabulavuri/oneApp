@@ -1,6 +1,6 @@
 // app/(tabs)/course.tsx
 import React, { useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, RefreshControl, Text, View } from 'react-native';
 
 import AdvancedQueriesAndJoins from '@/components/courses/AdvancedQueriesAndJoins';
 import CoursesHeader from '@/components/courses/CoursesHeader';
@@ -12,7 +12,8 @@ import SqlFundamental from '@/components/courses/sqlFundamental';
 
 export default function CoursesScreen() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [filter, setFilter] = useState('All'); // Options: All, Beginner, Intermediate, Advanced
+  const [filter, setFilter] = useState('All');
+  const [refreshing, setRefreshing] = useState(false);
 
   const coursesData = [
     {
@@ -48,12 +49,21 @@ export default function CoursesScreen() {
     return matchesSearch && matchesFilter;
   });
 
+  const handleRefresh = () => {
+    setRefreshing(true);
+    setTimeout(() => {
+      // Optionally refetch or reload data here
+      setRefreshing(false);
+    }, 1000);
+  };
+
   return (
     <FlatList
-      data={[
-        <CourseStats key="stats" />,
-        ...filteredCourses.map((c, i) => <View key={i}>{c.component}</View>),
-      ]}
+      data={
+        filteredCourses.length > 0
+          ? [<CourseStats key="stats" />, ...filteredCourses.map((c, i) => <View key={i}>{c.component}</View>)]
+          : []
+      }
       renderItem={({ item }) => <View style={{ marginBottom: 20 }}>{item}</View>}
       keyExtractor={(_, index) => index.toString()}
       ListHeaderComponent={
@@ -64,9 +74,12 @@ export default function CoursesScreen() {
       }
       stickyHeaderIndices={[0]}
       ListEmptyComponent={
-        <View style={{ padding: 20 }}>
-          <Text style={{ textAlign: 'center', fontSize: 16 }}>No courses found.</Text>
+        <View style={{ padding: 40, alignItems: 'center' }}>
+          <Text style={{ fontSize: 16, color: '#999' }}>No results found.</Text>
         </View>
+      }
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
       }
     />
   );
