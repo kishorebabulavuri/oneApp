@@ -19,7 +19,7 @@ export default function CoursesScreen() {
     {
       title: 'SQL Fundamentals',
       level: 'Beginner',
-      component: <SqlFundamental />,
+      component: <SqlFundamental/>,
     },
     {
       title: 'Advanced Queries & Joins',

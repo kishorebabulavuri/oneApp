@@ -1,8 +1,12 @@
+//components/courses/sqlFundamental.tsx
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const SqlFundamental = () => {
+  const router = useRouter();
+
   return (
     <View style={styles.card}>
       <View style={styles.topBar} />
@@ -42,7 +46,10 @@ const SqlFundamental = () => {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push('/course/sqlFundamental')}
+        >
           <Ionicons name="play-circle-outline" size={18} color="#fff" />
           <Text style={styles.buttonText}>Continue</Text>
           <Ionicons name="chevron-forward" size={18} color="#fff" />
@@ -53,6 +60,9 @@ const SqlFundamental = () => {
 };
 
 export default SqlFundamental;
+
+// ... (styles remain unchanged)
+
 
 const styles = StyleSheet.create({
   card: {

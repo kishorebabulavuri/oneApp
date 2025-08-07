@@ -1,0 +1,25 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Introduction to Databases",
+      "duration": 15,
+      "type": "Theory",
+      "description": "Learn what databases are and why they're essential for modern applications."
+    },
+    {
+      "id": 2,
+      "title": "Basic SELECT Statements",
+      "duration": 25,
+      "type": "Practical",
+      "description": "Learn how to retrieve data from databases using SELECT statements."
+    },
+    {
+      "id": 3,
+      "title": "Filtering Results with WHERE",
+      "duration": 20,
+      "type": "Theory",
+      "description": "Learn to filter rows based on specific conditions using WHERE clause."
+    }
+  ]
+}
